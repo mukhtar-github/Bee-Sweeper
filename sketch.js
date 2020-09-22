@@ -1,20 +1,24 @@
 
 function make2DArray(col, row) {
-    let arr = new Array(col);
-    for (let i = 0; i < arr.length; i++) {
+    var arr = new Array(col);
+    for (var i = 0; i < arr.length; i++) {
         arr[i] = new Array(row);
     }
+    return arr;
 }
 
-let grid;
-let cols = 20;
-let rows = 20;
+var grid;
+var cols;
+var rows;
+var w = 20;
 
 function setUp() {
     createCanvas(200, 200);
+    cols = floor(width / w);
+    rows = floor(height / w);
     grid = make2DArray(20, 20);
-    for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
             grid[i][j] = new Cell();
         }
     }
@@ -22,8 +26,8 @@ function setUp() {
 
 function draw() {
     background(0);
-    for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
             grid[i][j].show();
         }
     }
