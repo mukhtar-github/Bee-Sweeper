@@ -1,8 +1,8 @@
 
-function make2DArray(col, row) {
-    var arr = new Array(col);
+function make2DArray(cols, rows) {
+    var arr = new Array(cols);
     for (var i = 0; i < arr.length; i++) {
-        arr[i] = new Array(row);
+        arr[i] = new Array(rows);
     }
     return arr;
 }
@@ -13,10 +13,10 @@ var rows;
 var w = 20;
 
 function setUp() {
-    createCanvas(200, 200);
+    createCanvas(201, 201);
     cols = floor(width / w);
     rows = floor(height / w);
-    grid = make2DArray(20, 20);
+    grid = make2DArray(cols, rows);
     for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
             grid[i][j] = new Cell(i * w, j * w, w);
