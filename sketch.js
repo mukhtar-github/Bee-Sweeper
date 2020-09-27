@@ -1,3 +1,7 @@
+var grid;
+var cols;
+var rows;
+var w = 20;
 
 function make2DArray(cols, rows) {
     var arr = new Array(cols);
@@ -6,11 +10,6 @@ function make2DArray(cols, rows) {
     }
     return arr;
 }
-
-var grid;
-var cols;
-var rows;
-var w = 20;
 
 function setUp() {
     createCanvas(201, 201);
@@ -25,7 +24,7 @@ function setUp() {
 }
 
 function draw() {
-    background(0);
+    background(255);
     for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
             grid[i][j].show();
