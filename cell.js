@@ -21,3 +21,5 @@ Cell.prototype.show = function() {
         }
     }
 };
+
+export { Cell };

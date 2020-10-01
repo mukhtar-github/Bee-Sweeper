@@ -1,3 +1,5 @@
+import { Cell } from "./cell.js";
+
 var grid;
 var cols;
 var rows;
