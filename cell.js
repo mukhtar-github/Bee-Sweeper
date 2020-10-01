@@ -17,7 +17,7 @@ Cell.prototype.show = function() {
 
     if (this.revealed) {
         if (this.bee) {
-            ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5);
+            ellipse(this.x + (this.w * 0.5), this.y + (this.w * 0.5), this.w * 0.5);
         }
     }
 };

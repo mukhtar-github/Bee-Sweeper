@@ -11,7 +11,7 @@ function make2DArray(cols, rows) {
     return arr;
 }
 
-function setUp() {
+function setup() {
     createCanvas(201, 201);
     cols = floor(width / w);
     rows = floor(height / w);
