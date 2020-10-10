@@ -1,6 +1,8 @@
-function Cell(x, y, w) {
-    this.x = x;
-    this.y = y;
+function Cell(i, j, w) {
+    this.i = i;
+    this.j = j; 
+    this.x = i * w;
+    this.y = j * w;
     this.w = w;
     if (random(1) < 0.5) {
         this.bee = true;
@@ -16,7 +18,24 @@ Cell.prototype.show = function() {
     rect(this.x, this.y, this.w, this.w);
     if (this.revealed) {
         if (this.bee) {
+            fill(127);
             ellipse(this.x + (this.w * 0.5), this.y + (this.w * 0.5), this.w * 0.5);
+        } else {
+            fill(200);
+            rect(this.x, this.y, this.w, this.w);
+        }
+    }
+};
+
+Cell.prototype.countBees = function() {
+    if (this.bee) {
+        return -1;
+    }
+    var total = 0;
+
+    for (var i = -1; i <= 1; i++) {
+        for (var j = -1; j <= 1; j++) {
+            var neighbor = grid[this.i + i][this.j + j];
         }
     }
 };
