@@ -7,7 +7,7 @@ function Cell(x, y, w) {
     } else {
         this.bee = false;
     }
-    this.revealed = true;
+    this.revealed = false;
 }
 
 Cell.prototype.show = function() {
@@ -21,3 +21,7 @@ Cell.prototype.show = function() {
         }
     }
 };
+
+Cell.prototype.contains = function(x, y) {
+    return (x > this.x && x < this.x + this.w && y > this.y && y < this.y + this.w);
+}
