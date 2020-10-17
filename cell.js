@@ -24,6 +24,9 @@ Cell.prototype.show = function() {
         } else {
             fill(200);
             rect(this.x, this.y, this.w, this.w);
+            textAlign(CENTER);
+            fill(0);
+            text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
         }
     }
 };
