@@ -36,14 +36,15 @@ Cell.prototype.countBees = function() {
         return -1;
     }
     var total = 0;
-    for (var i = -1; i <= 1; i++) {
-        for (var j = -1; j <= 1; j++) {
+    for (var xoff = -1; xoff <= 1; xoff++) {
+        for (var yoff = -1; yoff <= 1; yoff++) {
             var neighbor = grid[this.i + i][this.j + j];
             if (neighbor.bee) {
                 total++;
             }
         }
     }
+    console.log(total);
     this.neighborCount = total;
 };
 
