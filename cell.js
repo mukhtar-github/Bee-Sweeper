@@ -4,6 +4,7 @@ function Cell(i, j, w) {
     this.x = i * w;
     this.y = j * w;
     this.w = w;
+    this.neighborCount = 0;
     if (random(1) < 0.5) {
         this.bee = true;
     } else {
@@ -32,12 +33,15 @@ Cell.prototype.countBees = function() {
         return -1;
     }
     var total = 0;
-
     for (var i = -1; i <= 1; i++) {
         for (var j = -1; j <= 1; j++) {
             var neighbor = grid[this.i + i][this.j + j];
+            if (neighbor.bee) {
+                total++;
+            }
         }
     }
+    this.neighborCount = total;
 };
 
 Cell.prototype.contains = function(x, y) {

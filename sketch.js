@@ -21,6 +21,11 @@ function setup() {
             grid[i][j] = new Cell(i, j, w);
         }
     }
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+            grid[i][j].countNeighbors;
+        }
+    }
 }
 
 function mousePressed() {
