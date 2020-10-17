@@ -5,12 +5,9 @@ function Cell(i, j, w) {
     this.y = j * w;
     this.w = w;
     this.neighborCount = 0;
-    if (random(1) < 0.5) {
-        this.bee = true;
-    } else {
-        this.bee = false;
-    }
-    this.revealed = false;
+
+    this.bee = false;
+    this.revealed = true;
 }
 
 Cell.prototype.show = function() {
@@ -38,13 +35,16 @@ Cell.prototype.countBees = function() {
     var total = 0;
     for (var xoff = -1; xoff <= 1; xoff++) {
         for (var yoff = -1; yoff <= 1; yoff++) {
-            var neighbor = grid[this.i + i][this.j + j];
-            if (neighbor.bee) {
+            var i = this.i + xoff;
+            var j = this.j + yoff;
+            if (i > -1 && i < cols && j > -1 && j < rows) {
+                var neighbor = grid[i][j];
+                if (neighbor.bee) {
                 total++;
+                }   
             }
         }
     }
-    console.log(total);
     this.neighborCount = total;
 };
 

@@ -3,6 +3,8 @@ var cols;
 var rows;
 var w = 20;
 
+totalBees = 10;
+
 function make2DArray(cols, rows) {
     var arr = new Array(cols);
     for (var i = 0; i < arr.length; i++) {
@@ -21,6 +23,23 @@ function setup() {
             grid[i][j] = new Cell(i, j, w);
         }
     }
+
+    //Pick totalBees spots
+    var options = [];
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+            options.push([i, j]);
+        }
+    }
+    console.log(options);
+
+    for (var n = 0; n < totalBees; n++) {
+        var i = floor(random(cols));
+        var j = floor(random(rows));
+        grid[i][j].bee = true;
+    }
+
+
     for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
             grid[i][j].countBees();
