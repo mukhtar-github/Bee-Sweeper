@@ -7,7 +7,7 @@ function Cell(i, j, w) {
     this.neighborCount = 0;
 
     this.bee = false;
-    this.revealed = true;
+    this.revealed = false;
 }
 
 Cell.prototype.show = function() {
@@ -21,9 +21,11 @@ Cell.prototype.show = function() {
         } else {
             fill(200);
             rect(this.x, this.y, this.w, this.w);
-            textAlign(CENTER);
-            fill(0);
-            text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
+            if (this.neighborCount > 0) {
+                textAlign(CENTER);
+                fill(0);
+                text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
+            }
         }
     }
 };
@@ -67,8 +69,8 @@ Cell.prototype.floodFill = function() {
             var j = this.j + yoff;
             if (i > -1 && i < cols && j > -1 && j < rows) {
                 var neighbor = grid[i][j];
-                if (neighbor.bee) {
-                total++;
+                if (!neighbor.bee) {
+                    neighbor.reveal();
                 }   
             }
         }
