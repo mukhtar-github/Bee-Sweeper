@@ -69,7 +69,7 @@ Cell.prototype.floodFill = function() {
             var j = this.j + yoff;
             if (i > -1 && i < cols && j > -1 && j < rows) {
                 var neighbor = grid[i][j];
-                if (!neighbor.bee) {
+                if (!neighbor.bee && !neighbor.revealed) {
                     neighbor.reveal();
                 }   
             }
