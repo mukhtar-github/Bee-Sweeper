@@ -32,7 +32,8 @@ Cell.prototype.show = function() {
 
 Cell.prototype.countBees = function() {
     if (this.bee) {
-        return -1;
+        this.neighborCount = -1;
+        return;
     }
     var total = 0;
     for (var xoff = -1; xoff <= 1; xoff++) {
@@ -56,6 +57,7 @@ Cell.prototype.contains = function(x, y) {
 
 Cell.prototype.reveal = function() {
     this.revealed = true;
+    console.log(this.neighborCount);
     if (this.neighborCount == 0) {
         // flood fill time
         this.floodFill();
